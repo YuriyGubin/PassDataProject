@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PassDataProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PassDataProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                 <rect key="frame" x="112.66666666666669" y="451" width="165" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="tQW-d5-4cd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="165" id="tQW-d5-4cd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -51,6 +51,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="nTb-RL-mdH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -65,10 +68,56 @@
                             <constraint firstItem="SJu-WU-7sA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="wkN-ku-8G5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginTF" destination="Ix9-O4-Zw3" id="a6Q-Mq-spE"/>
+                        <outlet property="passwordTF" destination="LMZ-zL-4cf" id="amf-5L-bYg"/>
+                        <segue destination="zgT-l4-N52" kind="presentation" identifier="showWelcome" modalPresentationStyle="fullScreen" id="Raf-tl-Trs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="113.84615384615384" y="-28.436018957345969"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="oy6-gS-UYA">
+            <objects>
+                <viewController id="zgT-l4-N52" customClass="SecondViewController" customModule="PassDataProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="975-bt-Vls">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YC-13-v3p">
+                                <rect key="frame" x="148" y="147" width="94" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM9-PT-M3q">
+                                <rect key="frame" x="150" y="401" width="90" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Go back"/>
+                                <connections>
+                                    <action selector="goBackButtonPressed" destination="zgT-l4-N52" eventType="touchUpInside" id="gdS-7J-Qa5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zlv-cv-wfp"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sM9-PT-M3q" firstAttribute="centerY" secondItem="975-bt-Vls" secondAttribute="centerY" id="JCH-b6-y68"/>
+                            <constraint firstItem="2YC-13-v3p" firstAttribute="centerX" secondItem="975-bt-Vls" secondAttribute="centerX" id="Rod-GL-fjF"/>
+                            <constraint firstItem="2YC-13-v3p" firstAttribute="top" secondItem="zlv-cv-wfp" secondAttribute="top" constant="100" id="bkj-YO-8rn"/>
+                            <constraint firstItem="sM9-PT-M3q" firstAttribute="centerX" secondItem="975-bt-Vls" secondAttribute="centerX" id="xUG-sV-0m5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="2YC-13-v3p" id="Rr4-Ds-WPl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJF-cC-vko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833.84615384615381" y="-28.436018957345969"/>
         </scene>
     </scenes>
     <resources>
